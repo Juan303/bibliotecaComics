@@ -3,28 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Mis colecciones</h1>
+        <h1>Administrar categorias</h1>
         
     </div>
     <div class="row">
-        <a href="{{ url('/register_library') }}" class="btn btn-success">Registrar Coleccion</a>
+        <a href="{{ url('/register_library') }}" class="btn btn-success">Registrar categoria</a>
     </div>
     <div class="row">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Coleccion</th>
-                    <th>Numeros</th>
-                    <th>Tipo</th> 
-                    <th>Categoria</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
                     <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($libraries as $library)
+            @foreach($categories as $category)
                 <tr>
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

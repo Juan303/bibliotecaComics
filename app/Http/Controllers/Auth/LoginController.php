@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Validator;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -52,9 +52,21 @@ class LoginController extends Controller
         ];
          
         $this->validate($request, $rules, $messages);
+        $userdata = [
+            'email'     => $request->Input('email'),
+            'password'  => $request->Input('password')
+        ];
 
+        if (Auth::attempt($userdata)) {
 
-        //Sreturn back();
+            return back();
+    
+        }else{
+            $login_notification = "Nombre de usuario o contraseña incorrectos";
+            return back()->with(compact('login_notification'));
+        }
+
+        
     }
 
 }

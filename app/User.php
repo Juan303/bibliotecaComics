@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Library;
 
 class User extends Authenticatable
 {
@@ -33,4 +34,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function libraries(){
+        return $this->hasMany(Library::class);
+    }
+
 }
