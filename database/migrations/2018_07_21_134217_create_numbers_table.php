@@ -21,7 +21,7 @@ class CreateNumbersTable extends Migration
             $table->string('image')->nullable();
 
             $table->integer('collection_id')->unsigned();
-            $table->foreign('collection_id')->references('id')->on('collections');
+            $table->foreign('collection_id')->references('id')->on('collections')->ondelete('cascade');
 
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ class CreateCollectionCategoriesTable extends Migration
             $table->integer('collection_id')->unsigned();
             $table->foreign('collection_id')->references('id')->on('collections');
 
-            $table->integer('category_id')->unsigned()->nullable();
+            $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();

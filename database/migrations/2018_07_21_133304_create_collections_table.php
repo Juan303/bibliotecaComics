@@ -25,7 +25,7 @@ class CreateCollectionsTable extends Migration
             $table->integer('library_id')->unsigned();
             $table->foreign('library_id')->references('id')->on('libraries')->ondelete('cascade');
 
-            $table->integer('type_id')->unsigned();
+            $table->integer('type_id')->nullable()->unsigned();
             $table->foreign('type_id')->references('id')->on('types')->ondelete('set null');
 
             $table->timestamps();
