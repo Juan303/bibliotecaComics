@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8 mt-2 mb-2">
             <div class="card">
-                <div class="card-header text-center">{{ __('Registrar nueva categoria') }}</div>
+                <div class="card-header text-center">{{ __('Registrar nuevo tipo') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/admin/categories') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('/admin/types') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nombre') }}</label>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Imagen de la categoria</h5>
+                                <h5 class="card-title text-center">Imagen del tipo</h5>
                                 {{ csrf_field() }}
                                 <div class="custom-file text-left">
                                     <input type="file" name="image" value="{{ old('photo') }}" class="custom-file-input" id="validatedCustomFile"  lang="es">
@@ -46,12 +46,13 @@
                         </div>
                         <div class="form-group row mb-0 mt-1">
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{ url('admin/categories') }}" type="reset" class="btn btn-primary">
+                                <a href="{{ url('admin/types') }}" type="reset" class="btn btn-primary">
                                     {{ __('Volver') }}
                                 </a>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Registrar') }}
                                 </button>
+               
                             </div>
                         </div>
                     </form>

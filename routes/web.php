@@ -53,10 +53,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
 
     //UD (Update & Delete)
 
-    Route::get('/types/edit/{category}', 'TypeController@edit'); //editar producto
-    Route::post('/types/update/{category}', 'TypeController@update'); //guardar cambios producto
+    Route::get('/types/edit/{type}', 'TypeController@edit'); //editar producto
+    Route::post('/types/update/{type}', 'TypeController@update'); //guardar cambios producto
 
-    Route::delete('/types/{category}', 'TypeController@delete'); //eliminar producto
+    Route::delete('/types/{type}', 'TypeController@delete'); //eliminar producto
 
 
 });

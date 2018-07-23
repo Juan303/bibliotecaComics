@@ -43,7 +43,7 @@ class CategoryController extends Controller
         } //insert
 
         //return redirect('admin/categories/images/'.$product->id)->with(compact('notification', 'error'));
-        return redirect('admin/categories/index')->with(compact('notification', 'error'));
+        return redirect('admin/categories')->with(compact('notification', 'error'));
     }
 
     public function edit(Category $category){
