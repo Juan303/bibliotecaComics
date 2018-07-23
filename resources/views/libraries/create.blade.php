@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <h1>Registrar biblioteca</h1>
-        
     </div>
     <div class="row">
        <div class="col-12">
@@ -19,8 +18,11 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                
+                                 @if ($errors->has('name'))
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
@@ -29,8 +31,11 @@
 
                             <div class="col-md-6">
                                 <textarea class="form-control" name="description" id="description" cols="30" rows="4">{{ old('description') }}</textarea>
-
-                                
+                                 @if ($errors->has('description'))
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group row mb-0">

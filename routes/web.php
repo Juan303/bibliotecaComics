@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
 //=====================================CRUD's
 
-Route::middleware(['auth', 'admin'])->prefix('Admin')->namespace('Admin')->group(function(){
+Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group(function(){
     
     //categories
     //CR (Create & Read)
@@ -44,6 +44,20 @@ Route::middleware(['auth', 'admin'])->prefix('Admin')->namespace('Admin')->group
     Route::post('/categories/update/{category}', 'CategoryController@update'); //guardar cambios producto
 
     Route::delete('/categories/{category}', 'CategoryController@delete'); //eliminar producto
+
+    //types
+    //CR (Create & Read)
+    Route::get('/types', 'TypeController@index'); //listar categorias
+    Route::get('/types/create', 'TypeController@create'); //formulario de registro de categoria
+    Route::post('/types', 'TypeController@store'); //almacenar categoria
+
+    //UD (Update & Delete)
+
+    Route::get('/types/edit/{category}', 'TypeController@edit'); //editar producto
+    Route::post('/types/update/{category}', 'TypeController@update'); //guardar cambios producto
+
+    Route::delete('/types/{category}', 'TypeController@delete'); //eliminar producto
+
 
 });
 

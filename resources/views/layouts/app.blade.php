@@ -102,7 +102,7 @@
                                         <a class="dropdown-item" href="{{ url('/admin/categories') }}">Gestionar categorias</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('/admin/categories') }}">Gestionar tipos</a>
+                                        <a class="dropdown-item" href="{{ url('/admin/types') }}">Gestionar tipos</a>
                                         <hr>
                                     </li>
                                 @endif
