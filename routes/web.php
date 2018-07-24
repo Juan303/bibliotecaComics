@@ -24,8 +24,20 @@ Route::prefix('Auth')->group(function(){
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/register_library', 'LibraryController@index'); //formulario de registro
-    Route::post('/register_library', 'LibraryController@store'); //Registro la nueva biblioteca
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/libraries/create', 'LibraryController@create'); //formulario de registro nueva biblioteca
+    Route::post('/libraries', 'LibraryController@store'); //Registro la nueva biblioteca
+    Route::get('/libraries/edit/{library}', 'LibraryController@edit'); //formulario de edicion de biblioteca
+    Route::post('/libraries/update/{library}', 'LibraryController@update'); //guardar cambios de una edicion
+    Route::delete('/libraries/{library}', 'LibraryController@delete'); //eliminar producto
+
+
+
+
+    Route::get('/register_collection/{library}', 'CollectionController@create'); //formulario de registro nueva coleccion
+
 });
 
 //=====================================CRUD's
@@ -61,4 +73,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
 
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+

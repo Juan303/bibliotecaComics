@@ -59,7 +59,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($userdata)) {
 
-            return back();
+            return redirect('/home');
     
         }else{
             $login_notification = "Nombre de usuario o contraseña incorrectos";

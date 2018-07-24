@@ -8,6 +8,8 @@ use App\Collection;
 
 class Library extends Model
 {
+
+    protected $fillable = ['name', 'description'];
     
     public static $messages = [
         'name.required' => 'El campo nombre es obligatorio',
@@ -23,5 +25,12 @@ class Library extends Model
     
     public function collections(){
         return $this->hasMany(Collection::class);
+    }
+
+    public function getUrlImageAttribute(){
+        if($this->image == NULL){
+            return '/images/libraries/library_default.png';
+        }
+        return '/images/users/user_'.auth()->user()->id.'/libraries/'.$this->image;
     }
 }

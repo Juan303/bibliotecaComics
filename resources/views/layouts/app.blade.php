@@ -17,11 +17,11 @@
      
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid mb-2">
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-                    <a class="navbar-brand" href="#">Biblioteca Comics</a>
+                    <a class="navbar-brand" href="{{ url('/') }}">Biblioteca Comics</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -85,7 +85,7 @@
                         </div>
                         @else
                         <div class="dropdown">
-                            <a class="btn btn-info" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a class="btn btn-info px-5" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -127,7 +127,7 @@
         
         @yield('content')
    
-        <div class="container-fluid">
+        <div class="container-fluid mt-2">
             <footer class="page-footer bg-light pt-4">
                 <div class="row text-center text-xs-center text-sm-left text-md-left">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-1">
