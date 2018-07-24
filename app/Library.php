@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Collection;
+use App\User;
 
 class Library extends Model
 {
@@ -23,6 +24,10 @@ class Library extends Model
         'description' => 'required|max:200',
     ];
     
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     public function collections(){
         return $this->hasMany(Collection::class);
     }

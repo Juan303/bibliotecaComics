@@ -79,9 +79,7 @@
                           <label class="custom-control-label" for="customCheck_{{ $category->id }}">{{ $category->name }}</label>
                     </div>
                     @endforeach
-                    
                 </div>
-                
             </div>
         </div>
         <div class="row justify-content-center text-center">
@@ -91,7 +89,7 @@
                         {{ __('Volver') }}
                     </a>
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Siguiente >>') }}
+                        {{ __('Siguiente') }}
                     </button>
                 </div>
             </div>

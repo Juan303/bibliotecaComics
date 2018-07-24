@@ -29,7 +29,15 @@ class Collection extends Model
         return $this->hasMany(CollectionCategory::class);
     }
 
+
     public function numbers(){
         return $this->hasMany(Number::class);
+    }
+
+    public function getUrlImageAttribute(){
+        if($this->image == NULL){
+            return '/images/collections/collection_default.png';
+        }
+        return '/images/users/user_'.auth()->user()->id.'/collections/'.$this->image;
     }
 }

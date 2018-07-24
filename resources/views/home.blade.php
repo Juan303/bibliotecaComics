@@ -34,7 +34,7 @@
             @foreach($libraries as $library)
                 <tr>
                     <td><img src="{{ $library->url_image }}" alt="" width="60px"></td>
-                    <td><a href="">{{ $library->name }}</a></td>
+                    <td><a href="{{ url('collections/'.$library->id) }}">{{ $library->name }}</a></td>
                     <td>{{ count($library->collections) }}</td>
                     <td>{{ $library->description }}</td>
                     <td>

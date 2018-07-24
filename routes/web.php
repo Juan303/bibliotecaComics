@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/libraries/{library}', 'LibraryController@delete'); //eliminar producto
 
     //Colecciones 
-    Route::get('/collections', 'CollectionController@index'); //listar colecciones de una biblioteca
+    Route::get('/collections/{library}', 'CollectionController@index'); //listar colecciones de una biblioteca
     Route::get('/collections/create/{library}', 'CollectionController@create'); //formulario de registro nueva coleccion
     Route::post('/collections/{library}', 'CollectionController@store'); //Registro la nueva biblioteca
 
