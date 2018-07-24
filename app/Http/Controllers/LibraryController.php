@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Library;
+use File;
 
 class LibraryController extends Controller
 {
@@ -14,7 +15,7 @@ class LibraryController extends Controller
     
 
     public function store(Request $request){
-
+       
         //dd($request->all()); //muestra todos los datos request
         $error = false;
         $this->validate($request, Library::$rules, Library::$messages);
@@ -39,7 +40,7 @@ class LibraryController extends Controller
             $error = true;
         } //insert
 
-        return redirect('register_collection/'.$library->id);
+        return redirect('collections/create/'.$library->id);
     }
 
     public function edit(Library $library){
@@ -56,11 +57,15 @@ class LibraryController extends Controller
         $library->update($request->all());
         
        if ($request->hasFile('image')) {
+            if($library->image != NULL){
+                $fullPath = public_path().'/images/users/user_'.auth()->user()->id.'/libraries/'.$library->image;
+                File::delete($fullPath);
+            }
             $file = $request->file('image');
-            $path = public_path() . '/images/categories';
+            $path = public_path() . '/images/users/user_'.auth()->user()->id.'/libraries';
             $fileName = uniqid() . $file->getClientOriginalName();
             $file->move($path, $fileName);
-            $category->image = $fileName;
+            $library->image = $fileName;
         }
 
         if($library->save()){

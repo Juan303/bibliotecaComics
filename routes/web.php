@@ -25,19 +25,20 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
+    //Bibliotecas
     Route::get('/home', 'HomeController@index')->name('home');
-
     Route::get('/libraries/create', 'LibraryController@create'); //formulario de registro nueva biblioteca
     Route::post('/libraries', 'LibraryController@store'); //Registro la nueva biblioteca
     Route::get('/libraries/edit/{library}', 'LibraryController@edit'); //formulario de edicion de biblioteca
     Route::post('/libraries/update/{library}', 'LibraryController@update'); //guardar cambios de una edicion
     Route::delete('/libraries/{library}', 'LibraryController@delete'); //eliminar producto
 
+    //Colecciones 
+    Route::get('/collections', 'CollectionController@index'); //listar colecciones de una biblioteca
+    Route::get('/collections/create/{library}', 'CollectionController@create'); //formulario de registro nueva coleccion
+    Route::post('/collections/{library}', 'CollectionController@store'); //Registro la nueva biblioteca
 
-
-
-    Route::get('/register_collection/{library}', 'CollectionController@create'); //formulario de registro nueva coleccion
-
+   
 });
 
 //=====================================CRUD's

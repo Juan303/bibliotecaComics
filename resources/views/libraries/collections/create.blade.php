@@ -8,9 +8,9 @@
     <div class="row justify-content-center">
         <h3 class="text-muted">{{ $library->name }}</h3>
     </div>
-    <form method="POST" action="{{ url('register_library') }}" aria-label="{{ __('Register') }}">
-    <div class="row">
-        
+    <form method="POST" action="{{ url('collections/'.$library->id) }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
+       @csrf
+        <div class="row">    
             <div class="col-lg-6 col-12">
                  <div class="form-group">
                     <label for="name" class="text-md-right pl-1">{{ __('Nombre') }}</label>
@@ -45,8 +45,8 @@
                 <div class="form-group">
                     <label for="visibility" class="text-md-right pl-1">{{ __('Visibilidad') }}</label>
                     <select class="custom-select" name="visibility" id="visibility">
-                        <option value="si">SI</option>
-                        <option value="no">NO</option>
+                        <option value="1">SI</option>
+                        <option value="0">NO</option>
                     </select>
                     @if ($errors->has('visibility'))
                         <span class="text-danger" role="alert">
@@ -59,15 +59,29 @@
                 <div class="form-group">
                     <label for="type" class="text-md-right pl-1">{{ __('Tipo') }}</label>
                     <select class="custom-select" name="type" id="type">
-                        <option value="si">SI</option>
-                        <option value="no">NO</option>
+                        @foreach($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
                     </select>
-                    @if ($errors->has('type'))
-                        <span class="text-danger" role="alert">
-                            <strong>{{ $errors->first('type') }}</strong>
-                        </span>
-                    @endif
                 </div>
+                 <div class="form-group">
+                    <div>
+                        <label for="type" class="text-md-right pl-1">{{ __('Categorias') }}</label> 
+                        @if ($errors->has('categories'))
+                            <span class="text-danger" role="alert">
+                                <i>({{ $errors->first('categories') }})</i>
+                            </span>
+                        @endif
+                    </div>
+                    @foreach($categories as $category)
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                          <input name="categories[]" value="{{ $category->id }}" type="checkbox" class="custom-control-input" id="customCheck_{{ $category->id }}">
+                          <label class="custom-control-label" for="customCheck_{{ $category->id }}">{{ $category->name }}</label>
+                    </div>
+                    @endforeach
+                    
+                </div>
+                
             </div>
         </div>
         <div class="row justify-content-center text-center">
