@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/collections/{library}', 'CollectionController@index'); //listar colecciones de una biblioteca
     Route::get('/collections/create/{library}', 'CollectionController@create'); //formulario de registro nueva coleccion
     Route::post('/collections/{library}', 'CollectionController@store'); //Registro la nueva biblioteca
-
+    Route::get('/collections/edit/{collection}', 'CollectionController@edit'); //formulario de edicion de biblioteca
    
 });
 

@@ -55,6 +55,9 @@ class CollectionController extends Controller
     }
 
     public function edit(Collection $collection){
-        return view('/collections/edit')->with(compact('collection')); //formulario de edicion de la coleccion
+       
+        $categories = Category::all();
+        $types = Type::all();
+        return view('libraries/collections/edit')->with(compact('collection', 'categories', 'types')); //formulario de edicion de la coleccion
     }
 }

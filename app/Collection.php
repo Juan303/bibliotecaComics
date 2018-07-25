@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\CollectionCategory;
 use App\Number;
+use App\Type;
+use App\Category;
+use App\Library;
 
 class Collection extends Model
 {
@@ -29,11 +32,26 @@ class Collection extends Model
         return $this->hasMany(CollectionCategory::class);
     }
 
-
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
     public function numbers(){
         return $this->hasMany(Number::class);
     }
+    
+    public function library(){
+        return $this->belongsTo(Library::class);
+    }
 
+    public function has_category($category_id){
+        foreach($this->collection_categories as $collection_category){
+            if($collection_category->category->id == $category_id){
+                return true;
+            }
+        }
+        return false; 
+    }
+    
     public function getUrlImageAttribute(){
         if($this->image == NULL){
             return '/images/collections/collection_default.png';

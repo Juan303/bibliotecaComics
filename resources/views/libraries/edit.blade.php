@@ -53,11 +53,6 @@
                         <label class="custom-file-label" for="validatedCustomFile">Seleccionar...</label>
                     </div>
                     <img class="img-fluid img-thumbnail" src="{{ $library->url_image }}" alt="">
-                    @if ($errors->has('description'))
-                        <span class="text-danger" role="alert">
-                            <strong>{{ $errors->first('description') }}</strong>
-                        </span>
-                    @endif
                 </div>
             </div>
         </div>
