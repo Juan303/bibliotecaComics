@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/collections/create/{library}', 'CollectionController@create'); //formulario de registro nueva coleccion
     Route::post('/collections/{library}', 'CollectionController@store'); //Registro la nueva biblioteca
     Route::get('/collections/edit/{collection}', 'CollectionController@edit'); //formulario de edicion de biblioteca
+    Route::post('/collections/update/{collection}', 'CollectionController@update'); //guardar cambios de una edicion
+
    
 });
 
@@ -70,6 +72,20 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
     Route::post('/types/update/{type}', 'TypeController@update'); //guardar cambios producto
 
     Route::delete('/types/{type}', 'TypeController@delete'); //eliminar producto
+
+    //editorials
+    //CR (Create & Read)
+    Route::get('/editorials', 'EditorialController@index'); //listar editoriales
+    Route::get('/editorials/create', 'EditorialController@create'); //formulario de registro de editorial
+    Route::post('/editorials', 'EditorialController@store'); //almacenar editorial
+
+    //UD (Update & Delete)
+
+    Route::get('/editorials/edit/{type}', 'EditorialController@edit'); //editar editorial
+    Route::post('/editorials/update/{type}', 'EditorialController@update'); //guardar cambios en editorial
+
+    Route::delete('/editorials/{type}', 'EditorialController@delete'); //eliminar editorial
+
 
 
 });

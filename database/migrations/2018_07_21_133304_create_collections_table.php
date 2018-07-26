@@ -20,6 +20,7 @@ class CreateCollectionsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('visibility')->default('1');
+           
 
             //FK
             $table->integer('library_id')->unsigned();
@@ -27,6 +28,9 @@ class CreateCollectionsTable extends Migration
 
             $table->integer('type_id')->nullable()->unsigned();
             $table->foreign('type_id')->references('id')->on('types')->ondelete('set null');
+
+            $table->integer('editorial_id')->unsigned();
+            $table->foreign('editorial_id')->references('id')->on('editorials')->ondelete('set null');
 
             $table->timestamps();
         });

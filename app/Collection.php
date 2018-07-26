@@ -9,10 +9,11 @@ use App\Number;
 use App\Type;
 use App\Category;
 use App\Library;
+use App\Editorial;
 
 class Collection extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'visibility', 'library_id', 'type_id', ];
     
     public static $messages = [
         'name.required' => 'El campo nombre es obligatorio',
@@ -38,9 +39,11 @@ class Collection extends Model
     public function numbers(){
         return $this->hasMany(Number::class);
     }
-    
     public function library(){
         return $this->belongsTo(Library::class);
+    }
+    public function editorial(){
+        return $this->belongsTo(Editorial::class);
     }
 
     public function has_category($category_id){

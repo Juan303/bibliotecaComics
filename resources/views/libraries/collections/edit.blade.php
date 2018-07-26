@@ -8,7 +8,18 @@
     <div class="row justify-content-center">
         <h3 class="text-muted">{{ $collection->library->name }}</h3>
     </div>
-    <form method="POST" action="{{ url('collections/edit/'.$collection->id) }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
+     @if(session('notification'))
+        @if(session('error')==false)
+            <div class="alert alert-success mt-4">
+                {{ session('notification') }}
+            </div>
+        @else
+            <div class="alert alert-warning mt-4">
+                {{ session('notification') }}
+            </div>
+        @endif
+    @endif
+    <form method="POST" action="{{ url('collections/update/'.$collection->id) }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
        @csrf
         <div class="row">    
             <div class="col-lg-6 col-12">

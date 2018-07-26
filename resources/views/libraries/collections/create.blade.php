@@ -75,10 +75,18 @@
                     </div>
                     @foreach($categories as $category)
                     <div class="custom-control custom-checkbox custom-control-inline">
-                          <input name="categories[]" value="{{ $category->id }}" type="checkbox" class="custom-control-input" id="customCheck_{{ $category->id }}">
+                          <input name="categories[]" @if(is_array(old('categories')) && in_array($category->id, old('categories'))) checked @endif value="{{ $category->id }}" type="checkbox" class="custom-control-input" id="customCheck_{{ $category->id }}">
                           <label class="custom-control-label" for="customCheck_{{ $category->id }}">{{ $category->name }}</label>
                     </div>
                     @endforeach
+                </div>
+                <div class="form-group">
+                    <label for="editorial" class="text-md-right pl-1">{{ __('Editorial') }}</label>
+                    <select class="custom-select" name="editorial" id="editorial">
+                        @foreach($editorials as $editorial)
+                            <option value="{{ $editorial->id }}">{{ $editorial->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
