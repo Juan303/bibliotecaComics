@@ -33,14 +33,14 @@ class LibraryController extends Controller
             $library->image = $fileName;
         }
         if($library->save()){
-            $notification = "Producto registrado correctamente.";
+            $notification = "Biblioteca creada correctamente.";
         }
         else{
-            $notification = "Error al registrar el producto. Pruebe de nuevo más tarde.";
+            $notification = "Error al registrar la biblioteca. Pruebe de nuevo más tarde.";
             $error = true;
         } //insert
 
-        return redirect('collections/create/'.$library->id);
+        return redirect('/home')->with(compact('notification', 'error'));
     }
 
     public function edit(Library $library){

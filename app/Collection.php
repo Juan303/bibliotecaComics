@@ -13,20 +13,24 @@ use App\Editorial;
 
 class Collection extends Model
 {
-    protected $fillable = ['name', 'description', 'visibility', 'library_id', 'type_id', ];
+    protected $fillable = ['name', 'description', 'visibility', 'library_id', 'type_id'];
     
     public static $messages = [
         'name.required' => 'El campo nombre es obligatorio',
         'name.min' => 'El campo nombre debe contener 3 caracteres como mínimo',
         'description.required' => 'El campo descripcion es obligatorio',
         'description.max' => 'El campo descripcion no puede contener mas de 200 caracteres',
-        'categories.required' => 'Debes seleccionar al menos una categoria'
+        'categories.required' => 'Debes seleccionar al menos una categoria',
+        'numbers.required' => "Debes indicar la cantidad de numeros de la colección",
+        'numbers.min' => "La coleccion debe contener al menos un número",
+        'numbers.integer' => "La cantidad de numeros de la coleccion debe ser un número entero.",
     ];
 
     public static $rules = [
         'name' => 'required|min:3',
         'description' => 'required|max:200',
-        'categories' => 'required'
+        'categories' => 'required',
+        'numbers' => 'required|min:1|integer'
     ];
     
     public function collection_categories(){

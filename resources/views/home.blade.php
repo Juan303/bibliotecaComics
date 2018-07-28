@@ -21,6 +21,13 @@
         @endif
     @endif
     <div class="row">
+       <div class="col-12 col-lg-4 mb-2">
+            <div class="card h-100" style="min-height:300px">
+                <a style="white-space:normal;" class="p-0 d-block btn btn-success w-100 h-100" href="{{ url('/libraries/create') }}">
+                    <h1 class="mt-5">Crear nueva biblioteca</h1>
+                </a>
+            </div>
+        </div>
         @foreach($libraries as $library)
         <div class="col-12 col-lg-4 mb-2">
             <div class="card h-100">
@@ -51,15 +58,8 @@
         </div>  
         
         @endforeach
-        <div class="col-12 col-lg-4 mb-2">
-            <div class="card h-100">
-                <a style="white-space:normal;" class="p-0 d-block btn btn-success w-100 h-100" href="{{ url('/libraries/create') }}">
-                    
-                        <h1 class="mt-5">Crear nueva biblioteca</h1>
-
-                </a>
-            </div>
-        </div>
+         
+       
         
             
  
