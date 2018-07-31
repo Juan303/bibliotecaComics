@@ -20,6 +20,7 @@ class CreateCollectionsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('visibility')->default('1');
+            $table->integer('numbers')->nullable();
            
 
             //FK

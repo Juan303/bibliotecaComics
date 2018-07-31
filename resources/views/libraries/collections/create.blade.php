@@ -31,18 +31,6 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="image" class="text-md-right pl-1">{{ __('Imagen:') }}</label>
-                    <div class="custom-file text-left">
-                        <input type="file" name="image" value="{{ old('image') }}" class="custom-file-input" id="validatedCustomFile"  lang="es">
-                        <label class="custom-file-label" for="validatedCustomFile">Seleccionar...</label>
-                    </div>
-                    @if ($errors->has('description'))
-                        <span class="text-danger" role="alert">
-                            <strong>{{ $errors->first('description') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
                     <label for="visibility" class="text-md-right pl-1">{{ __('Visibilidad:') }}</label>
                     <select class="custom-select" name="visibility" id="visibility">
                         <option value="1">si</option>
@@ -88,7 +76,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                 <div class="form-group">
                     <label for="name" class="text-md-right pl-1">{{ __('Números:') }}</label>
                     <input id="numbers" type="number" class="form-control" name="numbers" placeholder="Total de números de la colección" value="{{ old('numbers') }}" required>
                     @if ($errors->has('numbers'))
@@ -97,12 +85,19 @@
                         </span>
                     @endif
                 </div>
+                <div class="form-group">
+                    <label for="image" class="text-md-right pl-1">{{ __('Imagen:') }}</label>
+                    <div class="custom-file text-left">
+                        <input type="file" name="image" value="{{ old('image') }}" class="custom-file-input" id="validatedCustomFile"  lang="es">
+                        <label class="custom-file-label" for="validatedCustomFile">Seleccionar...</label>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-12">
                 <div class="form-group">
-                    <a href="{{ url('libraries/edit/'.$library->id) }}" class="btn btn-primary">
+                    <a href="{{ url('collections/'.$library->id) }}" class="btn btn-primary">
                         {{ __('Volver') }}
                     </a>
                     <button type="submit" class="btn btn-primary">

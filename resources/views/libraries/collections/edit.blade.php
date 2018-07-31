@@ -75,6 +75,15 @@
                     </div>
                     @endforeach
                 </div>
+                 <div class="form-group">
+                    <label for="name" class="text-md-right pl-1">{{ __('Números:') }}</label>
+                    <input id="numbers" type="number" class="form-control" name="numbers" placeholder="Total de números de la colección" value="{{ old('numbers', $collection->numbers) }}" required>
+                    @if ($errors->has('numbers'))
+                        <span class="text-danger" role="alert">
+                            <strong>{{ $errors->first('numbers') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <div class="form-group">
                     <label for="image" class="text-md-right pl-1">{{ __('Imagen') }}</label>
                     <div class="custom-file text-left mb-2">
@@ -93,7 +102,7 @@
                         {{ __('Volver') }}
                     </a>
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Siguiente') }}
+                        {{ __('Guardar') }}
                     </button>
                 </div>
             </div>

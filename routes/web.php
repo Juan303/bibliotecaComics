@@ -25,6 +25,9 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
+    //Buscador (json para autocompletar con typeahead)
+    Route::get('/search/json', 'SearchController@data');
+    
     //Bibliotecas
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/libraries/create', 'LibraryController@create'); //formulario de registro nueva biblioteca

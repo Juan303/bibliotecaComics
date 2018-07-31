@@ -54,7 +54,7 @@ class CollectionController extends Controller
                 $collection_category->save();
             }
         }
-        return redirect('numbers/create/'.$collection->id);
+        return redirect('collections/'.$library->id);
     }
 
     public function edit(Collection $collection){
@@ -65,7 +65,6 @@ class CollectionController extends Controller
     }
 
     public function update(Request $request, Collection $collection){
-
         $this->validate($request, Collection::$rules, Collection::$messages);
 
         $error = false;
